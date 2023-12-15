@@ -1,0 +1,21 @@
+class Solution {
+    public String destCity(List<List<String>> paths) {
+        Set<String> startingCities = new HashSet<>();
+        
+        // Add all starting cities to the set
+        for (List<String> path : paths) {
+            String startingCity = path.get(0);
+            startingCities.add(startingCity);
+        }
+        
+        // Find the destination city
+        for (List<String> path : paths) {
+            String destinationCity = path.get(1);
+            if (!startingCities.contains(destinationCity)) {
+                return destinationCity;
+            }
+        }
+        
+        return ""; // No destination city found
+    }
+}
